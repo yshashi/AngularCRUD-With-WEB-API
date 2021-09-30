@@ -1,0 +1,47 @@
+{
+  "posts": [
+    {
+      "id": 2,
+      "firstName": "Abhishek",
+      "lastName": "Yadav",
+      "email": "abhishek.connectrix@gmail.com",
+      "mobile": "9877898765",
+      "salary": "80,000"
+    },
+    {
+      "id": 3,
+      "firstName": "Reshma",
+      "lastName": "Yadav",
+      "email": "reshma@gmail.com",
+      "mobile": "9988777676",
+      "salary": "85,999"
+    },
+    {
+      "id": 4,
+      "firstName": "John",
+      "lastName": "Smith",
+      "email": "john.smith@abbvie.com",
+      "mobile": "9899867767",
+      "salary": "80,000"
+    }
+  ],
+  "signupUsers": [
+    {
+      "fullname": "Sashi Yadav",
+      "mobile": "9898745878",
+      "email": "yshashi30@gmail.com",
+      "password": "123456",
+      "id": 1
+    },
+    {
+      "fullname": "",
+      "email": "",
+      "password": "",
+      "mobile": "",
+      "id": 2
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
