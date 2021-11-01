@@ -3,7 +3,7 @@
         <h1 style="color: aliceblue;" class="navbar-brand">Angular Crud</h1>
         <div class="d-flex">
 
-            <button type="button" id="add-btn" class="btn btn-success" (click)="clickAddEmployee()" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Employee</button>
+            <button *ngIf="role==='Admin'" type="button" id="add-btn" class="btn btn-success" (click)="clickAddEmployee()" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Employee</button>
             <button routerLink="/login" class="btn btn-danger mx-3">Logout</button>
         </div>
     </div>
@@ -32,7 +32,7 @@
             <td>₹ {{row.salary}}</td>
             <td>
                 <button style="color: #fff;" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-info" (click)="onEdit(row)">Edit</button>
-                <button style="color: #fff;" class="btn btn-danger mx-3" (click)="deleteEmployeeDetail(row)">Delete</button>
+                <button [disabled]="role==='Employee'" style="color: #fff;" class="btn btn-danger mx-3" (click)="deleteEmployeeDetail(row)">Delete</button>
             </td>
         </tr>
 

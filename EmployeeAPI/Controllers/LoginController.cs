@@ -1,4 +1,5 @@
-﻿using EmployeeAPI.Data;
+using EmployeeAPI.Data;
+using EmployeeAPI.Helpers;
 using EmployeeAPI.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -33,6 +34,7 @@ namespace EmployeeAPI.Controllers
             }
             else
             {
+                 userObj.Password = EncDscPassword.EncryptPassword(userObj.Password);
                 _context.userModels.Add(userObj);
                 _context.SaveChanges();
                 return Ok(new
@@ -52,16 +54,16 @@ namespace EmployeeAPI.Controllers
             }
             else
             {
-                var user = _context.userModels.Where(a =>
-                a.UserName == userObj.UserName
-                && a.Password == userObj.Password).FirstOrDefault();
-                if (user != null)
+        var user = _context.userModels.Where(a => a.UserName == userObj.UserName).FirstOrDefault();
+
+                
+                if (user != null && EncDscPassword.DecryptPassword(user.Password)==userObj.Password)
                 {
                     return Ok(new
                     {
                         StatusCode = 200,
                         Message = "Logged In Successfully",
-                        
+                        UserType=user.UserType,
                     });
                 }
                 else

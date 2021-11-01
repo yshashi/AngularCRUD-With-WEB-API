@@ -16,6 +16,7 @@ export class EmployeeDashboardComponent implements OnInit {
   showUpdate !: boolean;
   @Input() receive !: string;
   @Input() mobileSpecification !: any;
+  role:string =""
   constructor(private api: ApiService,
     private formBuilder: FormBuilder) { }
 
@@ -28,6 +29,7 @@ export class EmployeeDashboardComponent implements OnInit {
       salary: ['']
     })
     this.getEmployeeDetails();
+    this.role = localStorage.getItem('userType')!
   }
   clickAddEmployee(){
     this.formValue.reset();

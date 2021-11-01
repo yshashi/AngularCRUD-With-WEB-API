@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
       email:["",Validators.compose([Validators.required,Validators.email])],
       password:["",Validators.required]
     });
-   
+   localStorage.clear();
   }
   login(){
   //   this.http.get<any>("http://localhost:3000/signupUsers")
@@ -42,7 +42,11 @@ export class LoginComponent implements OnInit {
   this.api.login(this.loginObj)
   .subscribe(res=>{
     alert(res.message);
-    this.router.navigate(['dashboard'])
+    this.router.navigate(['dashboard']);
+    localStorage.setItem('token',res.token);
+    localStorage.setItem('userType',res.userType);
+  },err=>{
+    alert("soomething went wrong")
   })
    }
 
